@@ -1,0 +1,12 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: traefik-gateway
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  gatewayClassName: traefik
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
