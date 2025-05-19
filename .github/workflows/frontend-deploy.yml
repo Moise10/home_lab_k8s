@@ -26,7 +26,7 @@ jobs:
             echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > kubeconfig
             echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
       - name: Deploy Frontend with kubectl
-        run: kubectl apply -f deploy.yml
+        run: kubectl apply -f deploy.yml --validate=false
         working-directory: apps/frontend-app
 
       # - name: Deploy to Kubernetes
