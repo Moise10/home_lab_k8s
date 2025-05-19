@@ -25,7 +25,7 @@ jobs:
 
       - name: Deploy to Kubernetes
         working-directory: apps/frontend-app
-        run: kubectl apply -f deploy.yml --validate=false
+        run: kubectl apply -f ./deploy.yml --validate=false
         
 
       
