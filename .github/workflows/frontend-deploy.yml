@@ -15,15 +15,18 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+      - name: Printing Folders
+        run: ls
 
-      - name: Set up Kubeconfig
-        run: |
-            echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > kubeconfig
-            echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
+      # - name: Set up Kubeconfig
+      #   run: |
+      #       echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > kubeconfig
+      #       echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
 
-      - name: Deploy to Kubernetes
-        run: kubectl apply -f ./deploy.yml --validate=false
-        working-directory: ./apps/frontend-app
+      # - name: Deploy to Kubernetes
+      #   working-directory: ./apps/frontend-app
+      #   run: kubectl apply -f ./deploy.yml --validate=false
+        
 
       
 
