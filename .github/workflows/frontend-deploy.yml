@@ -2,13 +2,12 @@ name: CI/CD Frontend
 
 on:
   push:
+    paths:
+      - apps/frontend-app/**
     branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
-env:
-  IMAGE_NAME: noukeu/frontend
 
 jobs:
   build-and-deploy:
@@ -30,7 +29,8 @@ jobs:
             echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f ./apps/frontend-app/deploy.yml --validate=false
+        run: kubectl apply -f ./deploy.yml --validate=false
+        working-directory: ./apps/frontend-app
 
       
 
