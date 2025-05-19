@@ -2,8 +2,7 @@ name: CI/CD Frontend
 
 on:
   push:
-    paths:
-      - apps/frontend-app/**
+    
     branches: [ main ]
   pull_request:
     branches: [ main ]
