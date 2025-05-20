@@ -19,7 +19,7 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 ### Kubernetes Installation
 
 - **Tool**: kubeadm
-- **Networking**: Calico (or mention your CNI if different)
+- **Networking**: Calico
 - **DNS and Add-ons**: CoreDNS, Metrics Server, Local Path Provisioner
 
 ---
@@ -53,15 +53,16 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 
 - Used **local-path-provisioner** as the default `StorageClass`.
 - Allows dynamic volume provisioning using hostPath, suitable for development and testing on local VMs.
+- Mounted persistent volume (frontend-pvc) on the frontend-app
 
 ---
 
-## Future Improvements
+## RBAC configurations
+### RBAC (Role-Based Access Control) is applied to:
 
-- Integrate **CI/CD pipeline** using GitHub Actions or Jenkins.
-- Add monitoring with **Prometheus and Grafana**.
-- Include **Helm** for templating and more manageable deployments.
-- Secure access with **RBAC**, **network policies**, and **TLS termination** at the ingress level.
+- Restrict access to only necessary service accounts
+- Follow the principle of least privilege
+
 
 ---
 
@@ -76,6 +77,60 @@ This project is designed to mimic a real-world DevOps environment while remainin
 - Observability and autoscaling
 
 ---
+
+## CI/CD pipeline 
+
+### CI/CD is managed with GitHub Actions, which automatically applies Kubernetes manifests on push.
+
+#### Key Features
+
+- Loads kubeconfig from a secret
+
+- Uses kubectl apply -f to deploy frontend app
+
+- Can be easily extended for full microservice stack deployments
+
+
+## ❗ Limitation
+Since the Kubernetes cluster runs on a local home lab (192.168.x.x), GitHub-hosted runners cannot reach the cluster directly. The deployment fails with:
+
+
+## 🛠️ Problems Faced & Solutions
+
+### 1. ❌ VMs Lost Static IP
+
+**Problem:**  
+The VMs provisioned with Vagrant would lose their static IPs after reboot.
+
+**Solution:**  
+We fixed this by configuring static IPs via `netplan` on each node and adjusted VirtualBox network adapter settings for persistence.
+
+---
+
+### 2. 🌐 Gateway API Misconfigured
+
+**Problem:**  
+Gateway and HTTPRoutes were not routing traffic as expected. We were monitoring the wrong node (controlplane).
+
+**Solution:**  
+After debugging, we found the Gateway was deployed on `node01`, not the controlplane. We adjusted our DNS or `/etc/hosts` to point to the correct node’s IP.
+
+---
+
+### 3. 📊 Metrics Server Not Reporting
+
+**Problem:**  
+Running `kubectl top nodes` failed with:
+
+**Solution:**  
+We updated the Metrics Server arguments to:
+
+```yaml
+--kubelet-insecure-tls
+--kubelet-preferred-address-types=InternalIP,Hostname
+
+
+
 
 ## Requirements to Run Locally
 
