@@ -6,7 +6,8 @@ metadata:
 spec:
   parentRefs:
   - name: nginx-gw
-  
+  hostnames:
+  - "frontend.local"
   rules:
   
   - matches:

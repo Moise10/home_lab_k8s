@@ -92,6 +92,15 @@ This project is designed to mimic a real-world DevOps environment while remainin
 ## ❗ Limitation
 Since the Kubernetes cluster runs on a local home lab (192.168.x.x), GitHub-hosted runners cannot reach the cluster directly. The deployment fails with:
 
+```ruby
+E0523 12:54:41.667122    2023 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://192.168.56.11:6443/api?timeout=32s\": dial tcp 192.168.56.11:6443: i/o timeout"
+error: unable to recognize "deploy.yml": Get "https://192.168.56.11:6443/api?timeout=32s": dial tcp 192.168.56.11:6443: i/o timeout
+Error: Process completed with exit code 1.
+```
+**Solution:**
+To fix this I plan to create my own runner then try again , or I will deploy the project on a public cloud platform (AWS-EKS)
+
+
 
 ## 🛠️ Problems Faced & Solutions
 
@@ -111,7 +120,7 @@ We fixed this by configuring static IPs via `netplan` on each node and adjusted 
 Gateway and HTTPRoutes were not routing traffic as expected. We were monitoring the wrong node (controlplane).
 
 **Solution:**  
-After debugging, we found the Gateway was deployed on `node01`, not the controlplane. We adjusted our DNS or `/etc/hosts` to point to the correct node’s IP.
+After debugging, I found the Gateway was deployed on `node01`, not the controlplane. We adjusted our DNS or `/etc/hosts` to point to the correct node’s IP.
 
 ---
 
@@ -126,6 +135,11 @@ We updated the Metrics Server arguments to:
 ```yaml
 --kubelet-insecure-tls
 --kubelet-preferred-address-types=InternalIP,Hostname
+--secure-port=4443
+--metric-resolution=30s
+
+References: https://serverfault.com/questions/1153770/installed-metrics-server-in-kubernetes-cluster-but-getting-serviceunavailable?utm_source=chatgpt.com
+
 
 
 
