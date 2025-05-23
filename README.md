@@ -29,7 +29,7 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 ### Horizontal Pod Autoscaling
 
 - Configured HPA for the `frontend` deployment.
-- Autoscaling range: **min 2 pods**, **max 8 pods**
+- Autoscaling range: **min 1 pods**, **max 5 pods**
 - Target CPU utilization is monitored via the **Metrics Server**.
 
 ### Observability
@@ -39,9 +39,7 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 
 ### Configuration Management
 
-- Created **ConfigMaps** for both:
-  - `frontend` deployment
-  - `checkoutservice` deployment
+- Created **ConfigMaps** for all the microservice apps
 - Environment variables are loaded from these ConfigMaps for cleaner configuration separation.
 
 ### Ingress Routing (Gateway API)
