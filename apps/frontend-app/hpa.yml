@@ -1,16 +1,18 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: frontend
-  namespace: default
+  name: frontend-hpa
 spec:
-  maxReplicas: 8
-  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: frontend
-
-status:
-  currentReplicas: 0
-  desiredReplicas: 0
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50

@@ -33,11 +33,14 @@ spec:
         ports:
         - name: grpc
           containerPort: 7000
-        env:
-        - name: PORT
-          value: "7000"
-        - name: DISABLE_PROFILER
-          value: "1"
+        # env:
+        # - name: PORT
+        #   value: "7000"
+        # - name: DISABLE_PROFILER
+        #   value: "1"
+        envFrom:
+          - configMapRef:
+              name: currency-config
         readinessProbe:
           grpc:
             port: 7000

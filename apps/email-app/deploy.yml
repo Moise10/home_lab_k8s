@@ -32,11 +32,14 @@ spec:
         image: us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.2
         ports:
         - containerPort: 8080
-        env:
-        - name: PORT
-          value: "8080"
-        - name: DISABLE_PROFILER
-          value: "1"
+        # env:
+        # - name: PORT
+        #   value: "8080"
+        # - name: DISABLE_PROFILER
+        #   value: "1"
+        envFrom:
+          - configMapRef:
+              name: email-config
         readinessProbe:
           periodSeconds: 5
           grpc:

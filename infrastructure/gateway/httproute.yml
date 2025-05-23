@@ -6,7 +6,9 @@ metadata:
 spec:
   parentRefs:
   - name: nginx-gw
+  
   rules:
+  
   - matches:
     - path:
         type: PathPrefix

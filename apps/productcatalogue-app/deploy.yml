@@ -32,11 +32,14 @@ spec:
         image: us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.2
         ports:
         - containerPort: 3550
-        env:
-        - name: PORT
-          value: "3550"
-        - name: DISABLE_PROFILER
-          value: "1"
+        # env:
+        # - name: PORT
+        #   value: "3550"
+        # - name: DISABLE_PROFILER
+        #   value: "1"
+        envFrom:
+          - configMapRef:
+              name: productcatg-config
         readinessProbe:
           grpc:
             port: 3550

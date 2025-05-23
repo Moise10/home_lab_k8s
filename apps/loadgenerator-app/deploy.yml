@@ -52,9 +52,12 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: busybox:latest
-        env:
-        - name: FRONTEND_ADDR
-          value: "frontend:80"
+        # env:
+        # - name: FRONTEND_ADDR
+        #   value: "frontend:80"
+        envFrom:
+          - configMapRef:
+              name: loadgenerator-config
       containers:
       - name: main
         securityContext:
