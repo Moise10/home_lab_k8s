@@ -4,6 +4,7 @@
 
 This project showcases a self-hosted Kubernetes cluster running in a home lab environment, aimed at developing hands-on DevOps skills. The cluster was manually provisioned using **Vagrant** and **VirtualBox**, with **kubeadm** used for Kubernetes bootstrapping. This lab simulates a production-like environment and includes service deployment, observability tools, ingress routing, and basic autoscaling capabilities.
 
+
 ---
 
 ## Lab Setup
@@ -62,17 +63,6 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 - Follow the principle of least privilege
 
 
----
-
-## Why This Project?
-
-This project is designed to mimic a real-world DevOps environment while remaining lightweight and resource-efficient. It demonstrates knowledge and experience in:
-
-- Cluster setup and management
-- Kubernetes core concepts
-- Networking, routing, and service discovery
-- Infrastructure automation and configuration
-- Observability and autoscaling
 
 ---
 
@@ -120,7 +110,7 @@ We fixed this by configuring static IPs via `netplan` on each node and adjusted 
 Gateway and HTTPRoutes were not routing traffic as expected. We were monitoring the wrong node (controlplane).
 
 **Solution:**  
-After debugging, I found the Gateway was deployed on `node01`, not the controlplane. We adjusted our DNS or `/etc/hosts` to point to the correct node’s IP.
+After debugging, we found the Gateway was deployed on `node01`, not the controlplane. We adjusted our DNS or `/etc/hosts` to point to the correct node’s IP.
 
 ---
 
@@ -155,11 +145,9 @@ References: https://serverfault.com/questions/1153770/installed-metrics-server-i
 
 ## Screenshots
 
-*(Add relevant screenshots of your Grafana dashboard, HPA scaling, Gateway routing, or `kubectl get pods` output here)*
+
 
 ---
 
-## Conclusion
 
-This Kubernetes home lab is a foundational DevOps project that demonstrates both infrastructure and application-level experience in a cloud-native environment.
 

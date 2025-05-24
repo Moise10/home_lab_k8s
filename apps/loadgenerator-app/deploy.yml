@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: loadgenerator
-  replicas: 1
+  replicas: 1 # scaled up the number of replicas from 1 to 6 to increase the load, then scaled down to 1 
   template:
     metadata:
       labels:
