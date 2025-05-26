@@ -4,6 +4,8 @@
 
 This project showcases a self-hosted Kubernetes cluster running in a home lab environment, aimed at developing hands-on DevOps skills. The cluster was manually provisioned using **Vagrant** and **VirtualBox**, with **kubeadm** used for Kubernetes bootstrapping. This lab simulates a production-like environment and includes service deployment, observability tools, ingress routing, and basic autoscaling capabilities.
 
+Watch the project in action:  https://youtu.be/Q8xWTKV2C3M
+
 
 ---
 
