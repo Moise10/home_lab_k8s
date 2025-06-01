@@ -18,3 +18,21 @@ variable "ec2_name" {
   default     = "single-instance"
   
 }
+
+variable "node_desired_size" {
+  description = "Desired number of nodes in the default node group"
+  type        = number
+  default     = 2
+}
+
+variable "cluster_name" {
+  description = "EKS cluster name"
+  type        = string
+  default     = "home-lab"
+}
+
+variable "kubernetes_version" {
+  description = "Kubernetes version for the control plane"
+  type        = string
+  default     = "1.32"
+}
