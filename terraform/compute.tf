@@ -91,10 +91,14 @@ module "endpoints" {
 
   vpc_id = module.vpc.vpc_id
   endpoints = {
-    ec2      = { service = "ec2" }
-    sts      = { service = "sts" }
-    ecr_api  = { service = "ecr.api" }
-    ecr_dkr  = { service = "ecr.dkr" }
-    
+    ec2     = { service = "ec2" }
+    sts     = { service = "sts" }
+    ecr_api = { service = "ecr.api" }
+    ecr_dkr = { service = "ecr.dkr" }
+    s3 = {
+      service         = "s3"
+      service_type    = "Gateway"
+      route_table_ids = module.vpc.private_route_table_ids
+    }
   }
 }

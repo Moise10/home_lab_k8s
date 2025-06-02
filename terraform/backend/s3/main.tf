@@ -3,7 +3,7 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "s3_backend" {
-  bucket = "backend-s3-bucket-${random_id.bucket_suffix.hex}"
+  bucket        = "backend-s3-bucket-${random_id.bucket_suffix.hex}"
   force_destroy = true
 
   tags = {
