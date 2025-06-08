@@ -6,10 +6,16 @@ This project showcases a self-hosted Kubernetes cluster running in a home lab en
 
 Watch the project in action:  https://youtu.be/Q8xWTKV2C3M
 
+## Some Screenshots
 
----
-
-
+<p float="left">
+  <img src="images/image1.png" width="200"/>
+  <img src="images/photo2.png" width="200"/>
+  <img src="images/photo3.png" width="200"/>
+  <img src="images/photo4.png" width="200"/>
+  <img src="images/photo5.png" width="200"/>
+  <img src="images/photo6.png" width="200"/>
+</p>
 
 ## Lab Setup
 
