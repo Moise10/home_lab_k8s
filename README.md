@@ -8,6 +8,20 @@ Watch the project in action:  https://youtu.be/Q8xWTKV2C3M
 
 ## Some Screenshots
 
+## AWS EKS Deployment:
+
+Migrated my Kubernetes cluster from a local VirtualBox/Vagrant setup to the cloud using Terraform, making the infrastructure fully reproducible and scalable.
+
+# Observability Stack:
+
+- Prometheus & Grafana for monitoring.
+
+- Custom Grafana dashboards for cluster, node, and application insights.
+
+- ServiceMonitor resources to collect metrics from multiple namespaces and workloads.
+
+- Node Exporter for granular node metrics.
+
 <p float="left">
   <img src="images/image1.png" width="200"/>
   <img src="images/photo2.png" width="200"/>
