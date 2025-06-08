@@ -37,6 +37,13 @@ variable "kubernetes_version" {
   default     = "1.32"
 }
 
+variable "region" {
+  description = "AWS region for the resources"
+  type        = string
+  default     = "eu-central-1"
+  
+}
+
 # variable "alert_endpoint_email" {
 #   description = "Email endpoint for SNS alerts"
 #   type        = string

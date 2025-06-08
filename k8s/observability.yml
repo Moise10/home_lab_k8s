@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sns-publisher
+  namespace: observability
+  labels:
+    app: sns-publisher
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::${ACCOUNT_ID}:role/k8s-sns-irsa-role
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sns-test-publisher
+spec:
+  template:
+    spec:
+      serviceAccountName: sns-publisher
+      containers:
+      - name: sns-publish
+        image: amazon/aws-cli
+        command: ["sh", "-c", "aws sns publish --topic-arn arn:aws:sns:eu-central-1:${ACCOUNT_ID}:k8s-alerts --message 'IRSA works!'"]
+        env:
+        - name: AWS_REGION
+          value: "eu-central-1"
+      restartPolicy: Never
