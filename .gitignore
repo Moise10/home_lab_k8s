@@ -5,6 +5,8 @@
 /terraform/terraform.tfstate.d
 /terraform/.terraform
 /terraform/.terraform.lock.hcl
+/terraform/.terraform.tfstate.lock.info
+
 
 /terraform/backend/s3/.terraform
 /terraform/backend/s3/terraform.tfstate
