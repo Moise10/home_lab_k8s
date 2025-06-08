@@ -18,3 +18,11 @@ output "default_security_group_id" {
   value       = module.vpc.default_security_group_id
 }
 
+# output "sns_topic_arn" {
+#   value = aws_sns_topic.k8s_alerts.arn
+# }
+
+
+output "aws_ami_nginx" {
+  value = data.aws_ami.example
+}

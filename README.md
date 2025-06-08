@@ -9,6 +9,8 @@ Watch the project in action:  https://youtu.be/Q8xWTKV2C3M
 
 ---
 
+
+
 ## Lab Setup
 
 ### Infrastructure
@@ -26,6 +28,13 @@ Watch the project in action:  https://youtu.be/Q8xWTKV2C3M
 - **DNS and Add-ons**: CoreDNS, Metrics Server, Local Path Provisioner
 
 ---
+
+## EKS screenshots
+
+<p float="left">
+  <img src="path/to/image1.png" width="100" />
+  <img src="path/to/image2.png" width="100" />
+</p>
 
 ## Features Implemented
 

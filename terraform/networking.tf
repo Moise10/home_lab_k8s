@@ -1,9 +1,6 @@
 data "aws_availability_zones" "AZs" {
   state = "available"
-
 }
-
-
 module "vpc" {
   source          = "terraform-aws-modules/vpc/aws"
   version         = "5.21.0"
@@ -37,3 +34,4 @@ module "web_access_sg" {
 
   egress_rules = ["all-all"]
 }
+

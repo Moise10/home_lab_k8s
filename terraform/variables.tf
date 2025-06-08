@@ -36,3 +36,10 @@ variable "kubernetes_version" {
   type        = string
   default     = "1.32"
 }
+
+# variable "alert_endpoint_email" {
+#   description = "Email endpoint for SNS alerts"
+#   type        = string
+#   default     = "moisembakop@yandex.com"
+  
+# }
