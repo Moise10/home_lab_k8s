@@ -4,6 +4,7 @@ metadata:
   name: emailservice
   labels:
     app: emailservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:

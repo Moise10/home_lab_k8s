@@ -4,6 +4,7 @@ metadata:
   name: paymentservice
   labels:
     app: paymentservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:

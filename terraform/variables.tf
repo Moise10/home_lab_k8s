@@ -44,9 +44,9 @@ variable "region" {
   
 }
 
-# variable "alert_endpoint_email" {
-#   description = "Email endpoint for SNS alerts"
-#   type        = string
-#   default     = "moisembakop@yandex.com"
+variable "alert_endpoint_email" {
+  description = "Email endpoint for SNS alerts"
+  type        = string
+  default     = "moisembakop@yandex.com"
   
-# }
+}

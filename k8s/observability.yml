@@ -14,6 +14,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: sns-test-publisher
+  namespace: observability
+  labels:
+    app: sns-publisher
 spec:
   template:
     spec:
@@ -26,3 +29,23 @@ spec:
         - name: AWS_REGION
           value: "eu-central-1"
       restartPolicy: Never
+
+---
+# This Service is used to expose the application for monitoring purposes.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  namespace: default
+  labels:
+    app: my-app
+    prometheus: enabled
+spec:
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: my-app
+
+---

@@ -4,6 +4,7 @@ metadata:
   name: cartservice
   labels:
     app: cartservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:

@@ -4,6 +4,7 @@ metadata:
   name: adservice
   labels:
     app: adservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:

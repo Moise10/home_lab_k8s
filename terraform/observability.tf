@@ -2,11 +2,11 @@ resource "aws_sns_topic" "home_lab-alerts" {
   name = "k8s-alerts"
 }
 
-# resource "aws_sns_topic_subscription" "alert_email" {
-#   topic_arn = aws_sns_topic.k8s_alerts.arn
-#   protocol  = "email"
-#   endpoint  = var.alert_endpoint_email
-# }
+resource "aws_sns_topic_subscription" "alert_email" {
+  topic_arn = aws_sns_topic.home_lab-alerts.arn
+  protocol  = "email"
+  endpoint  = var.alert_endpoint_email
+}
 
 
 # #Lets allow the EKS cluster to publish to the SNS topic

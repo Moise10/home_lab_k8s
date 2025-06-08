@@ -4,6 +4,7 @@ metadata:
   name: frontend-external
   labels:
     app: frontend
+    prometheus: enabled
 spec:
   type: LoadBalancer
   selector:

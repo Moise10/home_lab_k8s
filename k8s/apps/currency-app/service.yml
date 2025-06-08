@@ -4,6 +4,7 @@ metadata:
   name: currencyservice
   labels:
     app: currencyservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:

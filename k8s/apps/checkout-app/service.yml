@@ -4,6 +4,7 @@ metadata:
   name: checkoutservice
   labels:
     app: checkoutservice
+    prometheus: enabled
 spec:
   type: ClusterIP
   selector:
