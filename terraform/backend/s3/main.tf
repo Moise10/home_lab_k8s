@@ -3,7 +3,7 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "s3_backend" {
-  bucket        = "backend-s3-bucket-${random_id.bucket_suffix.hex}"
+  bucket        = "backend-s3-bucket-90778487453"
   force_destroy = true
 
   tags = {
@@ -11,6 +11,7 @@ resource "aws_s3_bucket" "s3_backend" {
     Environment = "Dev"
   }
 }
+
 
 
 resource "aws_s3_bucket_versioning" "versioning_backend" {
